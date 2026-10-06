@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ВС РФ | RMRP — Сервер Патрики</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #14180f;
+    --panel: #1f2617;
+    --line: #3b4630;
+    --text: #e8e6d9;
+    --muted: #a3a88f;
+    --gold: #c9a24a;
+    --red: #b3332b;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: "PT Sans", Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+  h1, h2, h3 { font-family: "Oswald", Impact, sans-serif; font-weight: 700; letter-spacing: .02em; }
+  .page { display: none; max-width: 960px; margin: 0 auto; padding: 56px 20px; }
+  .page.active { display: block; }
+
+  /* Главная */
+  .hero { text-align: center; padding: 40px 0 48px; border-bottom: 4px solid var(--red); }
+  .hero h1 { font-size: clamp(2.4rem, 8vw, 4.6rem); line-height: 1.05; }
+  .hero p { color: var(--muted); font-size: 1.15rem; margin-top: 14px; }
+  .stripe { height: 6px; margin: 0 auto 28px; width: 160px;
+    background: linear-gradient(#fff 33%, #1c57a5 33% 66%, var(--red) 66%); }
+
+  .actions { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; margin-top: 44px; }
+  .btn {
+    font-family: "Oswald", sans-serif; font-size: 1.15rem; font-weight: 500;
+    padding: 16px 30px; border: 2px solid var(--gold); background: transparent;
+    color: var(--gold); cursor: pointer; text-decoration: none; display: inline-block;
+    transition: background .2s, color .2s;
+  }
+  .btn:hover, .btn:focus-visible { background: var(--gold); color: var(--bg); outline: none; }
+  .btn.primary { background: var(--red); border-color: var(--red); color: #fff; }
+  .btn.primary:hover, .btn.primary:focus-visible { background: #d1453b; border-color: #d1453b; color: #fff; }
+  .btn.more { border-color: var(--line); color: var(--muted); }
+  .btn.more:hover { background: var(--line); color: var(--text); }
+
+  /* Подробнее */
+  .back { margin-bottom: 28px; }
+  .page h2 { font-size: 2rem; margin: 36px 0 14px; color: var(--gold); }
+  .page > h1 { font-size: 2.6rem; }
+  .about p { max-width: 70ch; margin-bottom: 12px; }
+  .officers { display: grid; gap: 14px; margin-top: 8px; }
+  .officer {
+    background: var(--panel); border-left: 5px solid var(--red);
+    padding: 18px 22px;
+  }
+  .officer h3 { font-size: 1.4rem; }
+  .rank { color: var(--gold); font-family: "Oswald", sans-serif; font-size: 1.05rem; }
+  .group { font-size: 1.3rem; color: var(--text); margin: 28px 0 10px; padding-bottom: 6px; border-bottom: 1px solid var(--line); }
+  footer { text-align: center; color: var(--muted); padding: 30px 0 10px; font-size: .9rem; }
+  @media (max-width: 520px) { .btn { width: 100%; text-align: center; } }
+</style>
+</head>
+<body>
+
+<!-- ============ ГЛАВНАЯ ============ -->
+<main id="home" class="page active">
+  <section class="hero">
+    <div class="stripe"></div>
+    <h1>Вооружённые Силы<br>Российской Федерации</h1>
+    <p>RMRP · Сервер Патрики</p>
+
+    <div class="actions">
+      <a class="btn primary" id="applyBtn" href="https://forum.rmrp.ru/pages/patriki_invite_army/" target="_blank" rel="noopener">Подать электронное заявление</a>
+      <a class="btn" id="restoreBtn" href="https://docs.google.com/forms/d/e/1FAIpQLSf1XUdEx1Jhdpk02H3sEOwadq88m2lchndcTJflTcCzzhGl7Q/viewform" target="_blank" rel="noopener">Восстановление</a>
+      <button class="btn more" onclick="showPage('details')">Ещё подробнее</button>
+    </div>
+  </section>
+</main>
+
+<!-- ============ ПОДРОБНЕЕ ============ -->
+<main id="details" class="page">
+  <button class="btn back" onclick="showPage('home')">← На главную</button>
+
+  <h1>О Вооружённых Силах РФ</h1>
+
+  <section class="about">
+    <h2>Информация</h2>
+    <p>Вооружённые Силы РФ на сервере Патрики — государственная структура RMRP, отвечающая за защиту страны и поддержание порядка. Здесь служат дисциплинированные игроки, которые соблюдают устав и выполняют приказы командования.</p>
+    <p>Чтобы вступить в ряды, подай электронное заявление на главной странице и дождись рассмотрения.</p>
+    <!-- TODO: добавь сюда требования к кандидатам, устав, порядок службы -->
+  </section>
+
+  <section>
+    <h2>Старший состав</h2>
+
+    <h3 class="group">Командование</h3>
+    <div class="officers">
+      <article class="officer"><div class="rank">Генерал-майор · Командир бригады</div><h3>Владимир Прайд</h3></article>
+      <article class="officer"><div class="rank">ЗКБР · Заместитель командира бригады</div><h3>Захар Прайд</h3></article>
+      <article class="officer"><div class="rank">ЗКБР по МТО · Заместитель командира бригады по материально-техническому обеспечению</div><h3>Даниил Прайд</h3></article>
+      <article class="officer"><div class="rank">Начальник штаба</div><h3>Роберт Прайд</h3></article>
+      <article class="officer"><div class="rank">Комендант гарнизона</div><h3>Даниил Шкредов</h3></article>
+    </div>
+
+    <h3 class="group">Батальон военной полиции</h3>
+    <div class="officers">
+      <article class="officer"><div class="rank">Командир батальона ВП</div><h3>Никита Прайд</h3></article>
+      <article class="officer"><div class="rank">Заместитель командира батальона ВП</div><h3>Егор Прайд</h3></article>
+    </div>
+
+    <h3 class="group">ССО</h3>
+    <div class="officers">
+      <article class="officer"><div class="rank">Командир ССО</div><h3>Компот 69-й</h3></article>
+      <article class="officer"><div class="rank">Заместитель командира ССО</div><h3>Легенда 87-й</h3></article>
+      <article class="officer"><div class="rank">Заместитель командира ССО</div><h3>Снайпер 58-й</h3></article>
+    </div>
+
+    <h3 class="group">Военный комиссариат</h3>
+    <div class="officers">
+      <article class="officer"><div class="rank">Военный комиссар</div><h3>Артём Бельтюков</h3></article>
+      <article class="officer"><div class="rank">Заместитель военного комиссара</div><h3>Максим Киреев</h3></article>
+      <article class="officer"><div class="rank">Заместитель военного комиссара</div><h3>Ильгиз Прайд</h3></article>
+      <article class="officer"><div class="rank">Начальник отдела кадров</div><h3>Егор Кирюшев</h3></article>
+      <article class="officer"><div class="rank">Начальник отдела призыва</div><h3>Сергей Вознесенский</h3></article>
+      <article class="officer"><div class="rank">Заместитель начальника отдела призыва</div><h3>Илья Кожухов</h3></article>
+    </div>
+
+    <h3 class="group">Медицинская рота</h3>
+    <div class="officers">
+      <article class="officer"><div class="rank">Командир медроты</div><h3>Саймон Райли</h3></article>
+      <article class="officer"><div class="rank">Заместитель командира медроты</div><h3>Кирилл Волков</h3></article>
+      <article class="officer"><div class="rank">Заместитель командира медроты</div><h3>Георгий Миронов</h3></article>
+    </div>
+
+    <h3 class="group">Рота охраны и обеспечения</h3>
+    <div class="officers">
+      <article class="officer"><div class="rank">Командир роты охраны и обеспечения</div><h3>Ягами Фьюри</h3></article>
+      <article class="officer"><div class="rank">Заместитель командира роты</div><h3>Анна Папич</h3></article>
+      <article class="officer"><div class="rank">Заместитель командира роты</div><h3>Евгений Кокс</h3></article>
+      <article class="officer"><div class="rank">Заместитель командира роты</div><h3>Алексей Свободов</h3></article>
+      <article class="officer"><div class="rank">Заместитель командира роты</div><h3>Нико Беллик</h3></article>
+    </div>
+  </section>
+</main>
+
+<footer>© ВС РФ · RMRP · By Eduard V. </footer>
+
+<script>
+  function showPage(id) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    window.scrollTo(0, 0);
+  }
+</script>
+</body>
+</html>
